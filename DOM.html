@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script type="text/javascript">
+      function create(){
+        var newElement = document.createElement('p');
+        newElement.appendChild(document.createTextNode("Hello World"));
+        document.body.appendChild(newElement);
+      }
+
+      function remove(){
+        var list = document.getElementById('myList');
+        list.removeChild(list.childNodes[0]);
+      }
+
+      function createNode(){
+        var child = document.body.childNodes;
+        for(var i=0;i<child.length;i++){
+          document.write(child[i].nodeName + "<br>");
+        }
+      }
+
+      function newAttribute(){
+        document.getElementsByTagName('H1')[0].setAttribute('class', 'red');
+        document.getElementsByTagName('P')[0].setAttribute('class', 'blue');
+      }
+
+      var t = setInterval(clock, 1000);
+
+      function clock(){
+        var date = new Date();
+        var time = date.toLocaleTimeString();
+        document.getElementById("myClock").innerHTML = time;
+      }
+
+      function startClock(){
+        t = setInterval(clock, 1000);
+      }
+
+      function stopClock(){
+        clearInterval(t);
+        alert("clock is stop! Click start to restart clock.");
+      }
+    </script>
+    <style media="screen">
+      .red {
+        color:red;
+      }
+
+      .blue {
+        color:blue;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" name="button" onclick="create()">Click Me</button>
+
+    <ul id="myList">
+      <li>Selamat pagi</li>
+      <li>Selamat Tghari</li>
+      <li>Selamat Ptg</li>
+    </ul>
+
+    <button type="button" name="button" onclick="remove()">remove</button>
+
+
+    <h1>Hello World</h1>
+    <p>Text goes here...</p>
+    <button type="button" name="button" onclick="newAttribute()">New Attribute</button>
+
+    <button type="button" name="button" onclick="createNode()">Click here</button>
+
+    <p id="myClock()"></p>
+    <button type="button" name="button" onclick="stopClock()">stop clock</button>
+    <button type="button" name="button" onclick="startClock()">start clock</button>
+  </body>
+</html>
